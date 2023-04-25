@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Stellaris Launchpad PWM tutorial | sdizdarevic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="After receiving my Stellaris Launchpad, I decided to browse the little amount of tutorials there was available on the subject. I was really impressed by the Getting Started hands-on workshop offered">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stellaris Launchpad PWM tutorial">
+<meta property="og:url" content="http://sdizdarevic.github.io/2018/03/08/Stellaris-Launchpad-PWM-tutorial/index.html">
+<meta property="og:site_name" content="sdizdarevic">
+<meta property="og:description" content="After receiving my Stellaris Launchpad, I decided to browse the little amount of tutorials there was available on the subject. I was really impressed by the Getting Started hands-on workshop offered">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://codeandlife.com/wp-content/uploads/2012/10/scope2-300x272.jpg">
+<meta property="og:image" content="http://codeandlife.com/wp-content/uploads/2012/10/compiler_setup-300x190.png">
+<meta property="og:image" content="http://codeandlife.com/wp-content/uploads/2012/10/pwm-300x215.png">
+<meta property="article:published_time" content="2018-03-08T18:57:33.000Z">
+<meta property="article:modified_time" content="2023-04-25T18:18:11.727Z">
+<meta property="article:author" content="sdizdar">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://codeandlife.com/wp-content/uploads/2012/10/scope2-300x272.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="sdizdarevic" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sdizdarevic</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://sdizdarevic.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Stellaris-Launchpad-PWM-tutorial" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Stellaris-Launchpad-PWM-tutorial/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T18:57:33.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Stellaris Launchpad PWM tutorial
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://dl.dropbox.com/u/765299/blog/scope2.jpg&t=NDRlOWYyYTI2MjMxMDQxNTBkMjU4MjY2NWJiZTIzNDY1MTg0ZDQ5YixlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1"><img src="http://codeandlife.com/wp-content/uploads/2012/10/scope2-300x272.jpg" title="Stellaris Launchpad attached to Picoscope"></a></p>
+<p>After receiving my Stellaris Launchpad, I decided to browse the little amount of tutorials there was available on the subject. I was really impressed by the <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://processors.wiki.ti.com/index.php/Getting_Started_with_the_Stellaris_EK-LM4F120XL_LaunchPad_Workshop&t=YTQ4MjE2YjI1YmI3NGY5ZjQwYThmZDM5NGQ5MTNhNGU5NmZmZWU1ZSxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">Getting Started hands-on workshop</a> offered in TI’s wiki. After watching the first few tutorials, I had a somewhat firmer grasp on how this little puppy was supposed to be programmed, and the capabilities of the Code Composer Studio IDE.</p>
+<p>I got as far as Chapter 4: Interrupts until I hit the first snag: After the Lab4 assignment, the friendly instructor told that as a home assignment, one could try out the PWM (<a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://en.wikipedia.org/wiki/Pulse-width_modulation&t=NzJjMGJiZGQ4N2U0YzIzNzc5Y2RhMDEzY2Q4YTkxMjAyZTg3MTRmOCxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">pulse-width modulation</a>) capabilities of the Launchpad before proceeding further. Little did I know how many hours I would spend on <strong>that</strong> topic! After a solid 8 hours of banging my head against the documentation, Launchpad and CCS (which is prone to hanging at least on my PC), I finally got it working, and decided this would be a great place for a tutorial.</p>
+<h2 id="Rule-1-of-PWM-on-Launchpad-There-are-no-PWM-units"><a href="#Rule-1-of-PWM-on-Launchpad-There-are-no-PWM-units" class="headerlink" title="Rule 1 of PWM on Launchpad: There are no PWM units"></a>Rule 1 of PWM on Launchpad: There are no PWM units</h2><p>The initial four hours of my PWM efforts were spent on the StellarisWare Driverlib documentation concerning PWM. In case you haven’t yet watched the tutorials, the Driverlib is essentially a bundle of code that takes away the burden of writing into dozens of control registers, and instead presents the programmer with a couple of hundred API calls to enable a higher-level approach.</p>
+<p>It wasn’t until the third hour of googling around that I discovered, that while the <em>timer functionality</em> of the Launchpad includes a PWM mode, there are no actual PWM units on board! So if you’re looking at the PWM functions in Chapter 21 of Stellaris Peripheral Driver Library User’s Guide – stop it and get back to the Chapter 27: Timer functions.</p>
+<h2 id="Step-1-Setting-up-the-timer0-PWM-mode"><a href="#Step-1-Setting-up-the-timer0-PWM-mode" class="headerlink" title="Step 1: Setting up the timer0 PWM mode"></a>Step 1: Setting up the timer0 PWM mode</h2><p>So the only PWM functionality the Launchpad supports is the “PWM mode” of the six hardware timers. Thankfully, that’s already quite nice (if I ever find out how to use interrupts with PWM, even better). So unless you already know how the timer system works, now’s a good time to watch the <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://youtu.be/PYHs7AK_91Q&t=YTUwMGU1Mzk1NmU0YTdlNmM5MGUzOWUzODBlY2NhNjQzZDIwMGVjMCxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">Chapter 4 video</a>which explains it quite nicely. Based on that tutorial, we learn that the following piece of code should initialize the timer for us:</p>
+<p>SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);<br>TimerConfigure(TIMER0_BASE, TIMER_CFG_PERIODIC);ulPeriod &#x3D;  (SysCtlClockGet()  &#x2F;  10)  &#x2F;  2;<br>TimerLoadSet(TIMER0_BASE, TIMER_A, ulPeriod -  1);  </p>
+<p>TimerEnable(TIMER0_BASE, TIMER_A);</p>
+<p>I removed the interrupt enabling part of code as we don’t need that. Also, the <code>TIMER_CFG_32_BIT_PER</code>constant was deprecated, so <code>TIMER_CFG_PERIODIC</code> is used instead.</p>
+<p>In order to use the PWM mode, we only need to change the TIMER_CFG_PERIODIC to PWM (also requires setting the timer to split mode so there’s two 16-bit timers instead of one 32-bit one), and specify a match value which defines the duty cycle of our PWM:</p>
+<p>SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);<br>TimerConfigure(TIMER0_BASE, TIMER_CFG_SPLIT_PAIR|TIMER_CFG_A_PWM);ulPeriod &#x3D;  1000;  &#x2F;&#x2F; with a 16-bit timer, maximum is 65535dutyCycle &#x3D;  250;  &#x2F;&#x2F; 75 % duty cycle (0.25 * ulPeriod)  </p>
+<p>TimerLoadSet(TIMER0_BASE, TIMER_A, ulPeriod -  1);<br>TimerMatchSet(TIMER0_BASE, TIMER_A, ulPeriod &#x2F;  2);<br>TimerEnable(TIMER0_BASE, TIMER_A);</p>
+<p>In normal operation, counter counts down from “load value” and PWM signal stays high until the counter reaches “match value”, at which point PWM signal goes down and stays there until timer reaches zero, at which point the counter is reset to “load value”, PWM signal goes back up, and downcount continues. In the above example, timer counts down from 1000 and PWM goes low when it reaches 250 (i.e. after 750 cycles), and then stays low for 250 cycles, after which counter resets to 1000 and PWM goes up again.</p>
+<h2 id="Step-0-Enabling-Timer-0-Capture-Compare-PWM-pins-CCP"><a href="#Step-0-Enabling-Timer-0-Capture-Compare-PWM-pins-CCP" class="headerlink" title="Step 0: Enabling Timer 0 Capture Compare PWM pins (CCP)"></a>Step 0: Enabling Timer 0 Capture Compare PWM pins (CCP)</h2><p>Now comes the tricky part. After enabling PWM mode and checking with scope, it’s easily verified that no pin on the Stellaris Launchpad is toggling at any rate, against any possible assumptions that might suggest otherwise. The reason for this is that the ARM core has the capability to use its pins for multiple purposes, and we need to specifically request that the Timer 0 CCP functionality is enabled.</p>
+<p>From the LM4F120H5QR datasheet, page 658, chapter 11-1, Table 11-1 we discover that Timer 0 subtimer A is connected to CCP pin called “T0CCP0″. From the next page and Table 11-2 we discover that this pin can be assigned to PB6 or PF0. Several registers need to be set for this to happen, but thankfully the Driverlib also has a nice function for this – it only requires about three hours of googling around to find the magic incantations. What you need to do is:</p>
+<ol>
+<li>Define the constant <code>PART_LM4F120H5QR</code></li>
+<li>include <code>driverlib/pin_map.h</code></li>
+</ol>
+<p>(now we have <code>GPIO_PB6_T0CCP0</code> defined)</p>
+<ol>
+<li>Use <code>SysCtlPeripheralEnable()</code> to enable Port B</li>
+<li>Call <code>GPIOPinConfigure(GPIO_PB6_T0CCP0);</code> to mux T0CCP0 to PB6</li>
+<li>Call <code>GPIOPinTypeTimer(GPIO_PORTB_BASE, GPIO_PIN_6);</code> to set up the pin</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://dl.dropbox.com/u/765299/blog/compiler_setup.png&t=OTIxNGQ1MzdlMWI5NGE1MzQyZmRjMDRiZTcwN2ZiYmJhMGIxZTBkYyxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1"><img src="http://codeandlife.com/wp-content/uploads/2012/10/compiler_setup-300x190.png" title="Compiler setup for PART_LM4F120H5QR"></a></p>
+<p>Pretty easy, wasn’t it? No, it wasn’t. And I can tell you that there is very scarce information yet available on this matter. And TI’s documentation on timer PWM modes with Driverlib is totally nonexistent, so it took me full three hours of trying to get all the details done. Thanks to <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://e2e.ti.com/support/microcontrollers/stellaris_arm_cortex-m3_microcontroller/f/471/t/177866.aspx?pi67863=2&t=MzNjYWU1YWRiNDE1MjBmNjllNTM1OTZmNWY4NjQxMDAyMGU3YzNmYixlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">Bakr Younis at TI forums</a> for the final tips.</p>
+<p>Oh, and to define the constant, you may want to go to project properties (I assume everyone is capable of creating an empty project already in CCS), and select Build &#x2F; Advanced Options &#x2F; Predefined Symbols &#x2F; Add Pre-define NAME and type “PART_LM4F120H5QR” into the dialog. An example of how it should look like is given on the right.</p>
+<h2 id="Wrapping-it-all-together"><a href="#Wrapping-it-all-together" class="headerlink" title="Wrapping it all together"></a>Wrapping it all together</h2><p>All right! We have everything more or less in place. The full source code becomes:</p>
+<p>#include  “inc&#x2F;hw_types.h”<br>#include  “inc&#x2F;hw_memmap.h”  </p>
+<p>#include  “driverlib&#x2F;sysctl.h”<br>#include  “driverlib&#x2F;gpio.h”<br>#include  “driverlib&#x2F;timer.h”<br>#include  “driverlib&#x2F;pin_map.h”  </p>
+<p>int main(void)  {  unsigned  long ulPeriod, dutyCycle;  &#x2F;&#x2F; 40 MHz system clock  SysCtlClockSet(SYSCTL_SYSDIV_5|SYSCTL_USE_PLL| SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN); ulPeriod &#x3D;  1000; dutyCycle &#x3D;  250;  &#x2F;&#x2F; Turn off LEDs  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);  GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3,  0);  &#x2F;&#x2F; Configure PB6 as T0CCP0  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);  GPIOPinConfigure(GPIO_PB6_T0CCP0);  GPIOPinTypeTimer(GPIO_PORTB_BASE, GPIO_PIN_6);  &#x2F;&#x2F; Configure timer  SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);  TimerConfigure(TIMER0_BASE, TIMER_CFG_SPLIT_PAIR|TIMER_CFG_A_PWM);  TimerLoadSet(TIMER0_BASE, TIMER_A, ulPeriod -1);  TimerMatchSet(TIMER0_BASE, TIMER_A, dutyCycle);  &#x2F;&#x2F; PWM  TimerEnable(TIMER0_BASE, TIMER_A);  while(1)  {  &#x2F;&#x2F; The following code varies the duty cycle over time  TimerMatchSet(TIMER0_BASE, TIMER_A, dutyCycle++);  if(dutyCycle &gt;&#x3D; ulPeriod -  1) dutyCycle &#x3D;  0;  SysCtlDelay(50000);  }<br>}</p>
+<p>After wiring the Launchpad to my trusty old (you can see the dust in the post title image if you click it full size :) Picoscope, it’s easy to verify the code actually works:</p>
+<p><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://dl.dropbox.com/u/765299/blog/pwm.png&t=NTg2MGQxNGI3N2MzNDI1ZjQ5MzgwZTljZTY3YzFlOGU4ZjAwNTYxMSxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1"><img src="http://codeandlife.com/wp-content/uploads/2012/10/pwm-300x215.png" title="pwm"></a></p>
+<p>That’s it! Based on this tutorial, it should be quite easy to set up more PWM signals, or once you realize that the Launchpad LEDs are located in PF1-3 that in turn can be controlled by T0CCP1, T1CCP0, and T1CCP1, you can also set up all kinds of cool color displays like in the Stellaris Launchpad demo program.</p>
+<p>Oh, and if someone is able to figure out how in the hell am I supposed to set up timer-based PWM interrupts so I can get interrupted on both timer reset and match and figure out which one, please let me know. Based on some “quick” (one hour down the drain) tests, the PWM functionality stops working once timer interrupts get set up. You’d think it would be rather straightforward using Driverlib, but in that case you’d think wrong.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Stellaris-Launchpad-PWM-tutorial/" data-id="clgwlc72y000aanbv5pq97ai6" data-title="Stellaris Launchpad PWM tutorial" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/08/Fourier-series/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Fourier series
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/08/Rumi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Rumi</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/Sarajevska-molitva/">Sarajevska molitva</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Setting-STM32-in-Ubuntu/">Setting STM32 in Ubuntu</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Fourier-series/">Fourier series</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 sdizdar<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

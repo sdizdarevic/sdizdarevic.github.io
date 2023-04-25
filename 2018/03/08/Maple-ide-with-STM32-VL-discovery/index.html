@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Maple ide with STM32 VL discovery | sdizdarevic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="In the past, ARM processors were notoriously unfriendly in non-professional environments due to proprietary tool chains and unfamiliar instruction sets. Because of this, they were conspicuously absent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maple ide with STM32 VL discovery">
+<meta property="og:url" content="http://sdizdarevic.github.io/2018/03/08/Maple-ide-with-STM32-VL-discovery/index.html">
+<meta property="og:site_name" content="sdizdarevic">
+<meta property="og:description" content="In the past, ARM processors were notoriously unfriendly in non-professional environments due to proprietary tool chains and unfamiliar instruction sets. Because of this, they were conspicuously absent">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://78.media.tumblr.com/1ed4fb8bee809c263590567ed30d656c/tumblr_inline_mhaw5ufmDZ1qz4rgp.jpg">
+<meta property="og:image" content="http://78.media.tumblr.com/0cfc8db74beb3c44f6abd4a3e72dd25a/tumblr_inline_osxcwiu8qn1rzudnu_400.jpg">
+<meta property="article:published_time" content="2018-03-08T18:49:53.000Z">
+<meta property="article:modified_time" content="2023-04-25T18:18:11.329Z">
+<meta property="article:author" content="sdizdar">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://78.media.tumblr.com/1ed4fb8bee809c263590567ed30d656c/tumblr_inline_mhaw5ufmDZ1qz4rgp.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="sdizdarevic" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sdizdarevic</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://sdizdarevic.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Maple-ide-with-STM32-VL-discovery" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Maple-ide-with-STM32-VL-discovery/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T18:49:53.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Maple ide with STM32 VL discovery
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>In the past, ARM processors were notoriously unfriendly in non-professional environments due to proprietary tool chains and unfamiliar instruction sets. Because of this, they were conspicuously absent from classrooms and hobbyists’ workbenches. LeafLabs aims to change this by providing an ARM tool-chain built from open source components and a programming environment that is intuitively easy to use.</p>
+<p><img src="http://78.media.tumblr.com/1ed4fb8bee809c263590567ed30d656c/tumblr_inline_mhaw5ufmDZ1qz4rgp.jpg" alt="image"></p>
+<p>If you’re familiar with Arduino then you’ll recognize the shape of the board, in fact the Maple is designed to be Arduino compatible and not just at the hardware level! The Maple IDE will make Processing&#x2F;Arduino programmers feel right at home. By swapping the popular “avr-gcc” compiler with CodeSourcery’s “arm-none-eabi-gcc,” LeafLabs manages to provide a nearly identical programming experience to Arduino despite targeting a completely different architecture. Also, while some Arduino shields are incompatible due to certain capabilities being allocated to different pins, several of them are currently supported and there are more to come. There is also a guide available on the product page for porting Arduino libraries and source code over to Maple.</p>
+<p>As similar as it may be to the Arduino, the differences are what really make the Maple stand out. It harnesses the power of a 32-bit ARM Cortex-M3 clocked at 72 MHz to push 39 GPIOs, 16 analog pins, 12-bit ADC resolution and 15 PWM pins at 16-bit resolution. In order to make sure you have plenty of programming room to flex that hardware, the Maple also provides 128k Flash and 20KB SRAM. All of this performance is delivered in the same form factor as the Arduino Pro.</p>
+<p>If your current Arduino-based project is pushing against the performance limits of the ATmega, porting it over to Maple may be the fastest and easiest way to continue developing your project without starting from scratch.</p>
+<p>Anyway, here I am talking about STM32 VL DISCOVERY, a great $12 board, that is based on ARM CORTEX processor. This board is an excellent evaluation platform for the STMicroelectronics STM32.</p>
+<h2 id="Board-features"><a href="#Board-features" class="headerlink" title="Board features"></a>Board features</h2><p>The STM32 on the board is packed with peripherals, especially communication ports and timers, there is a lot that can be done with this “low end” part.</p>
+<p><img src="http://78.media.tumblr.com/0cfc8db74beb3c44f6abd4a3e72dd25a/tumblr_inline_osxcwiu8qn1rzudnu_400.jpg" alt="image"></p>
+<ul>
+<li>STM32F100RB Value Line Medium Density MCU, 24MHz Cortex-M3 CPU, 128KB flash, 8KB RAM.</li>
+<li>7 DMA channels, 3 USARTs, 2 SPIs, 2 I2C, ADC, DAC, RTC, lots of timers, CRC unit, two independent watchdogs.</li>
+<li>Integrated ST-Link USB debugger&#x2F;programmer unit. The debugger unit is also usable separately.</li>
+<li>8MHz HSE crystal.</li>
+<li>32768Hz LSE crystal.</li>
+<li>USB power LED (red).</li>
+<li>USB communication LED (red).</li>
+<li>Two user LEDs (green, blue).</li>
+<li>Reset button.</li>
+<li>User button.</li>
+<li>All the STM32 I&#x2F;O pins are conveniently available on the board pin strips.</li>
+</ul>
+<p>So, for beginners which used to work with arduino and its IDE, programming this board can be quite confusing. You are lucky, because there is Leaflabs Maple IDE, and with a little help i managed this IDE to work with STM32 discovery. If you want to try it, you can download it  <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=https://dl.dropbox.com/s/tikpm2ecdleyp8l/maple-ide-0.0.11-windowsxp32.7z?dl=1&t=NDAyOTZhNjVjODFiNDQyZmFiYTNkNTk5M2E4ZjA1MzM5YzI4MmE4NyxaMkV5bmlJNw==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/41634655034/maple-ide-with-stm32-vl-discovery&m=1">here</a>. For example of usage and differencies from Arduino IDE, read  <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://leaflabs.com/docs/&t=NmE0YzMyMTk2NTQ2NWJlYzBiMjVjZjJmNzM5YTE1NTM1Y2ZlZjgzMSxaMkV5bmlJNw==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/41634655034/maple-ide-with-stm32-vl-discovery&m=1">here</a>.</p>
+<p><strong><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=https://dl.dropboxusercontent.com/s/tikpm2ecdleyp8l/maple-ide-0.0.11-windowsxp32.7z?dl=1&t=YWU2NTdkNTEwMzdmNWE5OGYwYmE3MGMwYzQ3NzY2YTM1ZTEwMmFmMCxaMkV5bmlJNw==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/41634655034/maple-ide-with-stm32-vl-discovery&m=1">Maple IDE v 0.0.11</a></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Maple-ide-with-STM32-VL-discovery/" data-id="clgwlc72k0003anbv8oyh2hn8" data-title="Maple ide with STM32 VL discovery" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/08/Working-with-EEPROM-on-PIC16F877a/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Working with EEPROM on PIC16F877a
+
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/07/Sparrowboard-1450-Numato-getting-started/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Sparrowboard 1450 Numato getting started</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/Sarajevska-molitva/">Sarajevska molitva</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Setting-STM32-in-Ubuntu/">Setting STM32 in Ubuntu</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Fourier-series/">Fourier series</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 sdizdar<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

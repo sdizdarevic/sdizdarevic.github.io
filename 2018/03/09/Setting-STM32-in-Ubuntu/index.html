@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Setting STM32 in Ubuntu | sdizdarevic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="What is the STM32?Installing the Toolchain PrerequisitesHeads up: This currently only works on Ubuntu. I have not been able to get the toolchain to work on OS X just yet. Update all your sources and u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setting STM32 in Ubuntu">
+<meta property="og:url" content="http://sdizdarevic.github.io/2018/03/09/Setting-STM32-in-Ubuntu/index.html">
+<meta property="og:site_name" content="sdizdarevic">
+<meta property="og:description" content="What is the STM32?Installing the Toolchain PrerequisitesHeads up: This currently only works on Ubuntu. I have not been able to get the toolchain to work on OS X just yet. Update all your sources and u">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-03-09T20:32:30.000Z">
+<meta property="article:modified_time" content="2023-04-25T18:18:11.625Z">
+<meta property="article:author" content="sdizdar">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sdizdarevic" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sdizdarevic</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://sdizdarevic.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Setting-STM32-in-Ubuntu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/09/Setting-STM32-in-Ubuntu/" class="article-date">
+  <time class="dt-published" datetime="2018-03-09T20:32:30.000Z" itemprop="datePublished">2018-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Setting STM32 in Ubuntu
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="What-is-the-STM32"><a href="#What-is-the-STM32" class="headerlink" title="What is the STM32?"></a>What is the STM32?</h2><h2 id="Installing-the-Toolchain-Prerequisites"><a href="#Installing-the-Toolchain-Prerequisites" class="headerlink" title="Installing the Toolchain Prerequisites"></a>Installing the Toolchain Prerequisites</h2><p><strong>Heads up:</strong> This currently only works on Ubuntu. I have not been able to get the toolchain to work on OS X just yet.</p>
+<h4 id="Update-all-your-sources-and-upgrade-your-system"><a href="#Update-all-your-sources-and-upgrade-your-system" class="headerlink" title="Update all your sources and upgrade your system"></a>Update all your sources and upgrade your system</h4><p>Open a terminal window and type:</p>
+<p><code>sudo apt-get update</code> <code>sudo apt-get upgrade</code> <code>sudo apt-get autoremove</code></p>
+<p>Or in one convenient command that doesn’t require any interaction:</p>
+<p><code>sudo apt-get -y update &amp;&amp; sudo apt-get -y upgrade &amp;&amp; sudo apt-get -y autoremove</code></p>
+<h4 id="Install-Autoreconf-amp-LibUSB"><a href="#Install-Autoreconf-amp-LibUSB" class="headerlink" title="Install Autoreconf &amp; LibUSB"></a>Install Autoreconf &amp; LibUSB</h4><p>Open a terminal window and type:</p>
+<p><code>sudo apt-get install dh-autoreconf libusb-1.0.0-dev</code></p>
+<h4 id="Install-Git"><a href="#Install-Git" class="headerlink" title="Install Git"></a>Install Git</h4><p>Git is a popular version control system that is very popular, notably due to <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=https://github.com/&t=NjU3ODdiN2RlZjdjZjlmYjliNzRlN2E0MDJiMzJiNDAwM2RiNzE5NywyM1A5UE5lUA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/78016773864/setting-up-stm32-in-ubuntu&m=1">GitHub</a>. You will need the tool to download the latest version of STLink directly from its repository</p>
+<p>Again in the command line:</p>
+<p><code>sudo apt-get install git</code></p>
+<h2 id="Installing-the-Toolchain"><a href="#Installing-the-Toolchain" class="headerlink" title="Installing the Toolchain"></a>Installing the Toolchain</h2><h4 id="Install-the-compiler"><a href="#Install-the-compiler" class="headerlink" title="Install the compiler"></a>Install the compiler</h4><p>Start by adding the PPA to your system:</p>
+<p><code>sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded</code></p>
+<p>You then want to update your sources: <code>sudo apt-get update</code> and install the package: <code>sudo apt-get install gcc-arm-none-eabi</code></p>
+<p>If it installs correctly, doing autocomplete in the terminal like so:</p>
+<p><code>arm-none (press tab twice)</code></p>
+<p>should yield a list similar to:</p>
+<p>arm-none-eabi-addr2line   arm-none-eabi-gcc-4.7.4   arm-none-eabi-ld.bfd<br>arm-none-eabi-ar          arm-none-eabi-gcc-ar      arm-none-eabi-nm<br>arm-none-eabi-as          arm-none-eabi-gcc-nm      arm-none-eabi-objcopy<br>arm-none-eabi-c++         arm-none-eabi-gcc-ranlib  arm-none-eabi-objdump<br>arm-none-eabi-c++filt     arm-none-eabi-gcov        arm-none-eabi-ranlib<br>arm-none-eabi-cpp         arm-none-eabi-gdb         arm-none-eabi-readelf<br>arm-none-eabi-elfedit     arm-none-eabi-gdbtui      arm-none-eabi-size<br>arm-none-eabi-g++         arm-none-eabi-gprof       arm-none-eabi-strings<br>arm-none-eabi-gcc         arm-none-eabi-ld          arm-none-eabi-strip</p>
+<h4 id="Install-STLink"><a href="#Install-STLink" class="headerlink" title="Install STLink"></a>Install STLink</h4><p>The STLink package is the software for the STLink programmer that works with many boards ST boards. On the discovery boards, the programmer is embedded at the top. YOu just need to make sure you plug in your mini-USB cable into the center-most port that is labeled ST-Link.</p>
+<p>Start by cloning the git repository to a local folder:</p>
+<p><code>git clone  https://github.com/texane/stlink.git</code></p>
+<p>Go into the directory: <code>cd stlink</code> and run the following commands (from the repository instructions):</p>
+<p><code>./autogen.sh</code></p>
+<p><code>./configure</code></p>
+<p><code>make</code></p>
+<p>You should now have compiled a series of STLink tools. Verify this by listing the contents of the directory that start with st-</p>
+<p><code>ls -la | grep st-</code></p>
+<p>Let’s install these to our computer, so that we don’t have to keep coming back to this temporary folder where we’ve built the software</p>
+<p><code>make install</code></p>
+<p>Now you should be able to access these programs from anywhere in the terminal. Verify this by moving to a different directory:</p>
+<p><code>cd .. &amp;&amp; st-util</code></p>
+<h2 id="Flashing-your-first-program"><a href="#Flashing-your-first-program" class="headerlink" title="Flashing your first program"></a>Flashing your first program</h2><h4 id="Blink-example"><a href="#Blink-example" class="headerlink" title="Blink example"></a>Blink example</h4><p>Download Neil’s <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://academy.cba.mit.edu/classes/embedded_programming/blink.zip&t=YjllMmU4NGE5M2NjNGNiMjhmYTY0ZDk3ZTlmZWEwODNkZDQyNzQxYSwyM1A5UE5lUA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/78016773864/setting-up-stm32-in-ubuntu&m=1">blink example</a> and unzip it somewhere. Open a terminal and navigate to that folder. Following which, you will compile the blink example: <code>make</code></p>
+<p>Once, you have compiled the blink example, you should get a blink.elf file that you will want to flash to your board:</p>
+<p><code>sudo make flash</code></p>
+<p><strong>Escalated access:</strong> currently this requires sudo but I will amend the instructions in future to change the permissions to remove that requirement in future.</p>
+<h2 id="Using-the-debugging-tool-GDB"><a href="#Using-the-debugging-tool-GDB" class="headerlink" title="Using the debugging tool (GDB)"></a>Using the debugging tool (GDB)</h2><p>The interface works in two halves: the st-util and the GDB utility. The former hooks into the device and provides an interface for the interactive debugger shell embodied in the latter tool.</p>
+<p>Let’s start by loading the ST Utility:</p>
+<p><code>sudo st-util</code></p>
+<p>It should have spit out some information and say that it’s listening on *:4242</p>
+<p>In a new terminal window, you now want to start the debug tool GDB:</p>
+<p><code>arm-none-eabi-gdb</code></p>
+<p>It should drop you to the GDB command line, that starts each input line with: (gdb).</p>
+<p>Connect your GDB tool to the ST utility:</p>
+<p><code>tar extended-remote :4242</code></p>
+<p>You should see on the ST utility console that the GDB tool connected. And now we want to load your program:</p>
+<p><code>load blink.elf</code></p>
+<p>You will notice that on your board, the LEDs will be stopped and the program will have stopped executing, often midway through it. This is because the debugger has kicked in and we want to tell it to continue with the execution. In the GDB console type:</p>
+<p><code>continue</code></p>
+<p>If you want to drop back to the GDB shell to set debug points in your code or do other debug functions, just press CTRL+C (^C), the UNIX universal interrupt command.</p>
+<p>Congratulations! You have now setup your system to load and debug code for the STM32 board! Please feel free to add to this tutorial in future. In particular if you have figured out installation of the toolchain on Mac OS.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/09/Setting-STM32-in-Ubuntu/" data-id="clgwlc72t0008anbvhn6zhdow" data-title="Setting STM32 in Ubuntu" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/15/Sarajevska-molitva/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Sarajevska molitva
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/Sarajevska-molitva/">Sarajevska molitva</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Setting-STM32-in-Ubuntu/">Setting STM32 in Ubuntu</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Fourier-series/">Fourier series</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 sdizdar<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

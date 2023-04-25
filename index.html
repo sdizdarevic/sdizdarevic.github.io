@@ -122,7 +122,583 @@
 
 
   
+    <article id="post-Sarajevska-molitva" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/15/Sarajevska-molitva/" class="article-date">
+  <time class="dt-published" datetime="2018-03-15T11:08:32.000Z" itemprop="datePublished">2018-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/15/Sarajevska-molitva/">Sarajevska molitva</a>
+    </h1>
+  
 
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Sarajevska molitva</p>
+<p>**<br>Kumim te Bogom, veliki Boze,<br>skloni sa svijeta Zivotinje!<br>Neka preostane sve od macijeg roda,<br>moje sirotinjstvo neka preostane,<br>ali - skloni Zivotinje.<br>U pseci rod ne diraj,<br>ne dotici tice,<br>samo te molim,<br>milosni Boze skloni Zivotinje.<br>Skloni Zivotinje, sa obronaka, skloni.<br>Skloni Zivotinje, preklinjem te Boze -<br>ali mi ne diraj svinji ni vepra, ne diraj<br>slavuja, ni kucnog sarenog pjevaca.<br>Ne diraj mi nista u sta je lijepo pogledati!<br>Ne diraj nista.<br>Ali Zivotinje svakako skloni.<br>Mrava ne diraj, i marvu zanemari,<br>ali Zivotinje - skloni.<br>Gdje si ih metno, otuda ih skloni.<br>Sa svijeta, gdje si ih metno, skloni.<br>Skloni ih, Boze,<br>i pomozi im, Boze.<br>Niko im, bez Tebe, pomoci ne moze.<br>Nema im nigdje stana ni stanista,<br>na oba svijeta - kuce ni kucista.<br>**<br>Abdulah Sidran</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/15/Sarajevska-molitva/" data-id="clgwlc72r0007anbvex1e373e" data-title="Sarajevska molitva" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Setting-STM32-in-Ubuntu" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/09/Setting-STM32-in-Ubuntu/" class="article-date">
+  <time class="dt-published" datetime="2018-03-09T20:32:30.000Z" itemprop="datePublished">2018-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/09/Setting-STM32-in-Ubuntu/">Setting STM32 in Ubuntu</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="What-is-the-STM32"><a href="#What-is-the-STM32" class="headerlink" title="What is the STM32?"></a>What is the STM32?</h2><h2 id="Installing-the-Toolchain-Prerequisites"><a href="#Installing-the-Toolchain-Prerequisites" class="headerlink" title="Installing the Toolchain Prerequisites"></a>Installing the Toolchain Prerequisites</h2><p><strong>Heads up:</strong> This currently only works on Ubuntu. I have not been able to get the toolchain to work on OS X just yet.</p>
+<h4 id="Update-all-your-sources-and-upgrade-your-system"><a href="#Update-all-your-sources-and-upgrade-your-system" class="headerlink" title="Update all your sources and upgrade your system"></a>Update all your sources and upgrade your system</h4><p>Open a terminal window and type:</p>
+<p><code>sudo apt-get update</code> <code>sudo apt-get upgrade</code> <code>sudo apt-get autoremove</code></p>
+<p>Or in one convenient command that doesn’t require any interaction:</p>
+<p><code>sudo apt-get -y update &amp;&amp; sudo apt-get -y upgrade &amp;&amp; sudo apt-get -y autoremove</code></p>
+<h4 id="Install-Autoreconf-amp-LibUSB"><a href="#Install-Autoreconf-amp-LibUSB" class="headerlink" title="Install Autoreconf &amp; LibUSB"></a>Install Autoreconf &amp; LibUSB</h4><p>Open a terminal window and type:</p>
+<p><code>sudo apt-get install dh-autoreconf libusb-1.0.0-dev</code></p>
+<h4 id="Install-Git"><a href="#Install-Git" class="headerlink" title="Install Git"></a>Install Git</h4><p>Git is a popular version control system that is very popular, notably due to <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=https://github.com/&t=NjU3ODdiN2RlZjdjZjlmYjliNzRlN2E0MDJiMzJiNDAwM2RiNzE5NywyM1A5UE5lUA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/78016773864/setting-up-stm32-in-ubuntu&m=1">GitHub</a>. You will need the tool to download the latest version of STLink directly from its repository</p>
+<p>Again in the command line:</p>
+<p><code>sudo apt-get install git</code></p>
+<h2 id="Installing-the-Toolchain"><a href="#Installing-the-Toolchain" class="headerlink" title="Installing the Toolchain"></a>Installing the Toolchain</h2><h4 id="Install-the-compiler"><a href="#Install-the-compiler" class="headerlink" title="Install the compiler"></a>Install the compiler</h4><p>Start by adding the PPA to your system:</p>
+<p><code>sudo add-apt-repository ppa:terry.guo/gcc-arm-embedded</code></p>
+<p>You then want to update your sources: <code>sudo apt-get update</code> and install the package: <code>sudo apt-get install gcc-arm-none-eabi</code></p>
+<p>If it installs correctly, doing autocomplete in the terminal like so:</p>
+<p><code>arm-none (press tab twice)</code></p>
+<p>should yield a list similar to:</p>
+<p>arm-none-eabi-addr2line   arm-none-eabi-gcc-4.7.4   arm-none-eabi-ld.bfd<br>arm-none-eabi-ar          arm-none-eabi-gcc-ar      arm-none-eabi-nm<br>arm-none-eabi-as          arm-none-eabi-gcc-nm      arm-none-eabi-objcopy<br>arm-none-eabi-c++         arm-none-eabi-gcc-ranlib  arm-none-eabi-objdump<br>arm-none-eabi-c++filt     arm-none-eabi-gcov        arm-none-eabi-ranlib<br>arm-none-eabi-cpp         arm-none-eabi-gdb         arm-none-eabi-readelf<br>arm-none-eabi-elfedit     arm-none-eabi-gdbtui      arm-none-eabi-size<br>arm-none-eabi-g++         arm-none-eabi-gprof       arm-none-eabi-strings<br>arm-none-eabi-gcc         arm-none-eabi-ld          arm-none-eabi-strip</p>
+<h4 id="Install-STLink"><a href="#Install-STLink" class="headerlink" title="Install STLink"></a>Install STLink</h4><p>The STLink package is the software for the STLink programmer that works with many boards ST boards. On the discovery boards, the programmer is embedded at the top. YOu just need to make sure you plug in your mini-USB cable into the center-most port that is labeled ST-Link.</p>
+<p>Start by cloning the git repository to a local folder:</p>
+<p><code>git clone  https://github.com/texane/stlink.git</code></p>
+<p>Go into the directory: <code>cd stlink</code> and run the following commands (from the repository instructions):</p>
+<p><code>./autogen.sh</code></p>
+<p><code>./configure</code></p>
+<p><code>make</code></p>
+<p>You should now have compiled a series of STLink tools. Verify this by listing the contents of the directory that start with st-</p>
+<p><code>ls -la | grep st-</code></p>
+<p>Let’s install these to our computer, so that we don’t have to keep coming back to this temporary folder where we’ve built the software</p>
+<p><code>make install</code></p>
+<p>Now you should be able to access these programs from anywhere in the terminal. Verify this by moving to a different directory:</p>
+<p><code>cd .. &amp;&amp; st-util</code></p>
+<h2 id="Flashing-your-first-program"><a href="#Flashing-your-first-program" class="headerlink" title="Flashing your first program"></a>Flashing your first program</h2><h4 id="Blink-example"><a href="#Blink-example" class="headerlink" title="Blink example"></a>Blink example</h4><p>Download Neil’s <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://academy.cba.mit.edu/classes/embedded_programming/blink.zip&t=YjllMmU4NGE5M2NjNGNiMjhmYTY0ZDk3ZTlmZWEwODNkZDQyNzQxYSwyM1A5UE5lUA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/78016773864/setting-up-stm32-in-ubuntu&m=1">blink example</a> and unzip it somewhere. Open a terminal and navigate to that folder. Following which, you will compile the blink example: <code>make</code></p>
+<p>Once, you have compiled the blink example, you should get a blink.elf file that you will want to flash to your board:</p>
+<p><code>sudo make flash</code></p>
+<p><strong>Escalated access:</strong> currently this requires sudo but I will amend the instructions in future to change the permissions to remove that requirement in future.</p>
+<h2 id="Using-the-debugging-tool-GDB"><a href="#Using-the-debugging-tool-GDB" class="headerlink" title="Using the debugging tool (GDB)"></a>Using the debugging tool (GDB)</h2><p>The interface works in two halves: the st-util and the GDB utility. The former hooks into the device and provides an interface for the interactive debugger shell embodied in the latter tool.</p>
+<p>Let’s start by loading the ST Utility:</p>
+<p><code>sudo st-util</code></p>
+<p>It should have spit out some information and say that it’s listening on *:4242</p>
+<p>In a new terminal window, you now want to start the debug tool GDB:</p>
+<p><code>arm-none-eabi-gdb</code></p>
+<p>It should drop you to the GDB command line, that starts each input line with: (gdb).</p>
+<p>Connect your GDB tool to the ST utility:</p>
+<p><code>tar extended-remote :4242</code></p>
+<p>You should see on the ST utility console that the GDB tool connected. And now we want to load your program:</p>
+<p><code>load blink.elf</code></p>
+<p>You will notice that on your board, the LEDs will be stopped and the program will have stopped executing, often midway through it. This is because the debugger has kicked in and we want to tell it to continue with the execution. In the GDB console type:</p>
+<p><code>continue</code></p>
+<p>If you want to drop back to the GDB shell to set debug points in your code or do other debug functions, just press CTRL+C (^C), the UNIX universal interrupt command.</p>
+<p>Congratulations! You have now setup your system to load and debug code for the STM32 board! Please feel free to add to this tutorial in future. In particular if you have figured out installation of the toolchain on Mac OS.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/09/Setting-STM32-in-Ubuntu/" data-id="clgwlc72t0008anbvhn6zhdow" data-title="Setting STM32 in Ubuntu" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/" class="article-date">
+  <time class="dt-published" datetime="2018-03-09T20:27:48.000Z" itemprop="datePublished">2018-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>From:theregister.co.uk</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Soljo5n4OF4?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+<p>No longer content to cede the mobile processor market to ARM, British chip firm Imagination Technologies has unveiled a new reference tablet design powered by a CPU based on its MIPS architecture.</p>
+<p>Although designed to cost less than $100, the 9.7-inch device is more demo than actual product. Built by Chinese ODM Ingenic, its specs are basic, including Micro USB and Mini HDMI ports, 802.11n Wi-Fi, Bluetooth 4.0, front and rear cameras, and a display with 1,024-by-768 resolution.</p>
+<p>What sets this unit apart from other bargain basement Chinese slabs, though, is that its processor is not an ARM derivative, but Ingenic’s homebuilt JZ4780, a 32-bit MIPS design.</p>
+<p>MIPS, a RISC-based architecture, competed against the likes of DEC Alpha and Sun Sparc during the heyday of RISC-based Unix systems in the 1990s and early 2000s. But Imagination, which acquired MIPS in 2013, has mostly peddled the processors for use in the likes of routers, LTE access points, and embedded systems.</p>
+<p>Although Android has been running on MIPS since as far back as 2009, the architecture never caught on with smartphone vendors, who have all but standardized on ARM. That’s something that Imagination would like to change, with the help of Ingenic and other members of its “prpl”  <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://www.theregister.co.uk/2014/05/22/mips_maneuvers_for_worlddog_adoption_with_open_source_foundation/&t=MDUwYjgxMDU0NDRlOGVlZTM0NGFmZTFjYzM2ZGYwMDMwNWE2MjBhMSx0SVhvNnZGaQ==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/115486953925/imagination-touts-cheap-firefox-os-mips-slab-to&m=1">development foundation</a>.</p>
+<p><em>The Reg</em>  got its first  <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://www.theregister.co.uk/2015/03/09/review_imagination_technologies_mips_creator_ci20_development_board/&t=YWFiZDk3ZjIxZDYxMTkzOGMzZDI0NjlmMzc2ZGE4YzU2OTk5Yzk0Nix0SVhvNnZGaQ==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/115486953925/imagination-touts-cheap-firefox-os-mips-slab-to&m=1">close look at the JZ4780</a>  earlier this month, when we put Imagination’s CI20 development board through its paces. The short description is that it combines two 1.2GHz MIPS processor cores with Imagination’s PowerVR SGX540 GPU.</p>
+<p>Although the JZ4780 is fully capable of running Android 4.4 KitKat, however, another quirk of the reference tablet is that it also supports an experimental version of Mozilla’s Firefox OS, an operating system based on web technologies that has lately found its way onto a variety of low-cost phones, tablets, and TVs.</p>
+<p>Imagination was kind enough to provide a video of Firefox OS running on its MIPS-y fondleslab, and while no one here at Vulture West was wowed by the device’s performance, it’s nice to see some variety in what has essentially become a commodity product category.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/" data-id="clgwlc72i0002anbv9k5s6wc3" data-title="Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Fourier-series" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Fourier-series/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T19:01:51.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/08/Fourier-series/">Fourier series</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Fourier-Series-Basic-Results"><a href="#Fourier-Series-Basic-Results" class="headerlink" title="Fourier Series: Basic Results"></a>Fourier Series: Basic Results</h1><p>Recall that the mathematical expression</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img1.gif"></p>
+<p>is called a <strong>Fourier series</strong>.<br>Since this expression deals with convergence, we start by defining a similar expression when the sum is finite.</p>
+<p><strong>Definition.</strong> A <strong>Fourier polynomial</strong> is an expression of the form</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img2.gif"></p>
+<p>which may rewritten as</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img3.gif"></p>
+<p>The constants a_0, a_i_ and b_i, <img src="http://sosmath.com/fourier/fourier1/img4.gif">, are called the <strong>coefficients</strong> of <em>F_n</em>(<em>x</em>).</p>
+<p>The Fourier polynomials are <img src="http://sosmath.com/fourier/fourier1/img5.gif">-periodic functions. Using the trigonometric identities</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img6.gif"></p>
+<p>we can easily prove the integral formulas(1)for <img src="http://sosmath.com/fourier/fourier1/img7.gif">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img8.gif"></p>
+<p>(2)for <em>m</em> et <em>n</em>, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img9.gif"></p>
+<p>(3)for <img src="http://sosmath.com/fourier/fourier1/img10.gif">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img11.gif"></p>
+<p>(4)for <img src="http://sosmath.com/fourier/fourier1/img12.gif" alt=" ">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img13.gif" alt=" "></p>
+<p>Using the above formulas, we can easily deduce the following result:</p>
+<p><strong>Theorem.</strong> Let</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img15.gif" alt="  "></p>
+<p>We have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img16.gif" alt=" "></p>
+<p>This theorem helps associate a Fourier series to any <img src="http://sosmath.com/fourier/fourier1/img5.gif" alt=" ">-periodic function.</p>
+<p><strong>Definition.</strong> Let <em>f</em>(<em>x</em>) be a <img src="http://sosmath.com/fourier/fourier1/img5.gif" alt=" ">-periodic function which is integrable on <img src="http://sosmath.com/fourier/fourier1/img17.gif">. Set</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img18.gif" alt="  "></p>
+<p>The trigonometric series</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img19.gif" alt="  "></p>
+<p>is called the <strong>Fourier series</strong> associated to the function <em>f</em>(<em>x</em>). We will use the notation</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img20.gif" alt=" "></p>
+<p><strong>Example.</strong> Find the Fourier series of the function</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img21.gif" alt=" "></p>
+<p><strong>Answer.</strong> Since <em>f</em>(<em>x</em>) is odd, then <em>a__n</em> &#x3D; 0, for <img src="http://sosmath.com/fourier/fourier1/img7.gif" alt=" ">. We turn our attention to the coefficients <em>b__n</em>. For any <img src="http://sosmath.com/fourier/fourier1/img12.gif" alt=" ">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img22.gif"></p>
+<p>We deduce</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img23.gif" alt="  "></p>
+<p>Hence</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img24.gif" alt=" "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic01.gif"></p>
+<p><strong>Example.</strong> Find the Fourier series of the function</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img25.gif" alt=" "></p>
+<p><strong>Answer.</strong> We have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img26.gif" alt="  "></p>
+<p>and</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img27.gif" alt=" "></p>
+<p>We obtain <em>b_2_n</em> &#x3D; 0 and</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img28.gif" alt=" "></p>
+<p>Therefore, the Fourier series of <em>f</em>(<em>x</em>) is</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img29.gif" alt=" "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic02.gif"></p>
+<p><strong>Example.</strong> Find the Fourier series of the function function</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img30.gif" alt="  "></p>
+<p><strong>Answer.</strong> Since this function is the function of the example above minus the constant <img src="http://sosmath.com/fourier/fourier1/img31.gif" alt=" ">. So Therefore, the Fourier series of <em>f</em>(<em>x</em>) is</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img32.gif" alt="  "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic03.gif"></p>
+<p><strong>Remark.</strong> We defined the Fourier series for functions which are <img src="http://sosmath.com/fourier/fourier1/img5.gif" alt=" ">-periodic, one would wonder how to define a similar notion for functions which are <em>L</em>-periodic.</p>
+<p>Assume that <em>f</em>(<em>x</em>) is defined and integrable on the interval [-<em>L</em>,_L_]. Set</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img33.gif" alt=" "></p>
+<p>The function <em>F</em>(<em>x</em>) is defined and integrable on <img src="http://sosmath.com/fourier/fourier1/img17.gif">. Consider the Fourier series of_F_(<em>x</em>)</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img34.gif" alt=" "></p>
+<p>Using the substitution <img src="http://sosmath.com/fourier/fourier1/img35.gif" alt=" ">, we obtain the following definition:</p>
+<p><strong>Definition.</strong> Let <em>f</em>(<em>x</em>) be a function defined and integrable on [-<em>L</em>,_L_]. The Fourier series of <em>f</em>(<em>x</em>) is</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img36.gif" alt=" "></p>
+<p>where</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img37.gif" alt=" "></p>
+<p>for <img src="http://sosmath.com/fourier/fourier1/img38.gif" alt=" ">.</p>
+<p><strong>Example.</strong> Find the Fourier series of</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img39.gif" alt="  "></p>
+<p><strong>Answer.</strong> Since <em>L</em> &#x3D; 2, we obtain</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img40.gif" alt="  "></p>
+<p>for <img src="http://sosmath.com/fourier/fourier1/img12.gif">. Therefore, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img41.gif" alt="  "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic04.gif"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Fourier-series/" data-id="clgwlc72g0001anbv3j9zggnl" data-title="Fourier series" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Stellaris-Launchpad-PWM-tutorial" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Stellaris-Launchpad-PWM-tutorial/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T18:57:33.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/08/Stellaris-Launchpad-PWM-tutorial/">Stellaris Launchpad PWM tutorial</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://dl.dropbox.com/u/765299/blog/scope2.jpg&t=NDRlOWYyYTI2MjMxMDQxNTBkMjU4MjY2NWJiZTIzNDY1MTg0ZDQ5YixlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1"><img src="http://codeandlife.com/wp-content/uploads/2012/10/scope2-300x272.jpg" title="Stellaris Launchpad attached to Picoscope"></a></p>
+<p>After receiving my Stellaris Launchpad, I decided to browse the little amount of tutorials there was available on the subject. I was really impressed by the <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://processors.wiki.ti.com/index.php/Getting_Started_with_the_Stellaris_EK-LM4F120XL_LaunchPad_Workshop&t=YTQ4MjE2YjI1YmI3NGY5ZjQwYThmZDM5NGQ5MTNhNGU5NmZmZWU1ZSxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">Getting Started hands-on workshop</a> offered in TI’s wiki. After watching the first few tutorials, I had a somewhat firmer grasp on how this little puppy was supposed to be programmed, and the capabilities of the Code Composer Studio IDE.</p>
+<p>I got as far as Chapter 4: Interrupts until I hit the first snag: After the Lab4 assignment, the friendly instructor told that as a home assignment, one could try out the PWM (<a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://en.wikipedia.org/wiki/Pulse-width_modulation&t=NzJjMGJiZGQ4N2U0YzIzNzc5Y2RhMDEzY2Q4YTkxMjAyZTg3MTRmOCxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">pulse-width modulation</a>) capabilities of the Launchpad before proceeding further. Little did I know how many hours I would spend on <strong>that</strong> topic! After a solid 8 hours of banging my head against the documentation, Launchpad and CCS (which is prone to hanging at least on my PC), I finally got it working, and decided this would be a great place for a tutorial.</p>
+<h2 id="Rule-1-of-PWM-on-Launchpad-There-are-no-PWM-units"><a href="#Rule-1-of-PWM-on-Launchpad-There-are-no-PWM-units" class="headerlink" title="Rule 1 of PWM on Launchpad: There are no PWM units"></a>Rule 1 of PWM on Launchpad: There are no PWM units</h2><p>The initial four hours of my PWM efforts were spent on the StellarisWare Driverlib documentation concerning PWM. In case you haven’t yet watched the tutorials, the Driverlib is essentially a bundle of code that takes away the burden of writing into dozens of control registers, and instead presents the programmer with a couple of hundred API calls to enable a higher-level approach.</p>
+<p>It wasn’t until the third hour of googling around that I discovered, that while the <em>timer functionality</em> of the Launchpad includes a PWM mode, there are no actual PWM units on board! So if you’re looking at the PWM functions in Chapter 21 of Stellaris Peripheral Driver Library User’s Guide – stop it and get back to the Chapter 27: Timer functions.</p>
+<h2 id="Step-1-Setting-up-the-timer0-PWM-mode"><a href="#Step-1-Setting-up-the-timer0-PWM-mode" class="headerlink" title="Step 1: Setting up the timer0 PWM mode"></a>Step 1: Setting up the timer0 PWM mode</h2><p>So the only PWM functionality the Launchpad supports is the “PWM mode” of the six hardware timers. Thankfully, that’s already quite nice (if I ever find out how to use interrupts with PWM, even better). So unless you already know how the timer system works, now’s a good time to watch the <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://youtu.be/PYHs7AK_91Q&t=YTUwMGU1Mzk1NmU0YTdlNmM5MGUzOWUzODBlY2NhNjQzZDIwMGVjMCxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">Chapter 4 video</a>which explains it quite nicely. Based on that tutorial, we learn that the following piece of code should initialize the timer for us:</p>
+<p>SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);<br>TimerConfigure(TIMER0_BASE, TIMER_CFG_PERIODIC);ulPeriod &#x3D;  (SysCtlClockGet()  &#x2F;  10)  &#x2F;  2;<br>TimerLoadSet(TIMER0_BASE, TIMER_A, ulPeriod -  1);  </p>
+<p>TimerEnable(TIMER0_BASE, TIMER_A);</p>
+<p>I removed the interrupt enabling part of code as we don’t need that. Also, the <code>TIMER_CFG_32_BIT_PER</code>constant was deprecated, so <code>TIMER_CFG_PERIODIC</code> is used instead.</p>
+<p>In order to use the PWM mode, we only need to change the TIMER_CFG_PERIODIC to PWM (also requires setting the timer to split mode so there’s two 16-bit timers instead of one 32-bit one), and specify a match value which defines the duty cycle of our PWM:</p>
+<p>SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);<br>TimerConfigure(TIMER0_BASE, TIMER_CFG_SPLIT_PAIR|TIMER_CFG_A_PWM);ulPeriod &#x3D;  1000;  &#x2F;&#x2F; with a 16-bit timer, maximum is 65535dutyCycle &#x3D;  250;  &#x2F;&#x2F; 75 % duty cycle (0.25 * ulPeriod)  </p>
+<p>TimerLoadSet(TIMER0_BASE, TIMER_A, ulPeriod -  1);<br>TimerMatchSet(TIMER0_BASE, TIMER_A, ulPeriod &#x2F;  2);<br>TimerEnable(TIMER0_BASE, TIMER_A);</p>
+<p>In normal operation, counter counts down from “load value” and PWM signal stays high until the counter reaches “match value”, at which point PWM signal goes down and stays there until timer reaches zero, at which point the counter is reset to “load value”, PWM signal goes back up, and downcount continues. In the above example, timer counts down from 1000 and PWM goes low when it reaches 250 (i.e. after 750 cycles), and then stays low for 250 cycles, after which counter resets to 1000 and PWM goes up again.</p>
+<h2 id="Step-0-Enabling-Timer-0-Capture-Compare-PWM-pins-CCP"><a href="#Step-0-Enabling-Timer-0-Capture-Compare-PWM-pins-CCP" class="headerlink" title="Step 0: Enabling Timer 0 Capture Compare PWM pins (CCP)"></a>Step 0: Enabling Timer 0 Capture Compare PWM pins (CCP)</h2><p>Now comes the tricky part. After enabling PWM mode and checking with scope, it’s easily verified that no pin on the Stellaris Launchpad is toggling at any rate, against any possible assumptions that might suggest otherwise. The reason for this is that the ARM core has the capability to use its pins for multiple purposes, and we need to specifically request that the Timer 0 CCP functionality is enabled.</p>
+<p>From the LM4F120H5QR datasheet, page 658, chapter 11-1, Table 11-1 we discover that Timer 0 subtimer A is connected to CCP pin called “T0CCP0″. From the next page and Table 11-2 we discover that this pin can be assigned to PB6 or PF0. Several registers need to be set for this to happen, but thankfully the Driverlib also has a nice function for this – it only requires about three hours of googling around to find the magic incantations. What you need to do is:</p>
+<ol>
+<li>Define the constant <code>PART_LM4F120H5QR</code></li>
+<li>include <code>driverlib/pin_map.h</code></li>
+</ol>
+<p>(now we have <code>GPIO_PB6_T0CCP0</code> defined)</p>
+<ol>
+<li>Use <code>SysCtlPeripheralEnable()</code> to enable Port B</li>
+<li>Call <code>GPIOPinConfigure(GPIO_PB6_T0CCP0);</code> to mux T0CCP0 to PB6</li>
+<li>Call <code>GPIOPinTypeTimer(GPIO_PORTB_BASE, GPIO_PIN_6);</code> to set up the pin</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://dl.dropbox.com/u/765299/blog/compiler_setup.png&t=OTIxNGQ1MzdlMWI5NGE1MzQyZmRjMDRiZTcwN2ZiYmJhMGIxZTBkYyxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1"><img src="http://codeandlife.com/wp-content/uploads/2012/10/compiler_setup-300x190.png" title="Compiler setup for PART_LM4F120H5QR"></a></p>
+<p>Pretty easy, wasn’t it? No, it wasn’t. And I can tell you that there is very scarce information yet available on this matter. And TI’s documentation on timer PWM modes with Driverlib is totally nonexistent, so it took me full three hours of trying to get all the details done. Thanks to <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://e2e.ti.com/support/microcontrollers/stellaris_arm_cortex-m3_microcontroller/f/471/t/177866.aspx?pi67863=2&t=MzNjYWU1YWRiNDE1MjBmNjllNTM1OTZmNWY4NjQxMDAyMGU3YzNmYixlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1">Bakr Younis at TI forums</a> for the final tips.</p>
+<p>Oh, and to define the constant, you may want to go to project properties (I assume everyone is capable of creating an empty project already in CCS), and select Build &#x2F; Advanced Options &#x2F; Predefined Symbols &#x2F; Add Pre-define NAME and type “PART_LM4F120H5QR” into the dialog. An example of how it should look like is given on the right.</p>
+<h2 id="Wrapping-it-all-together"><a href="#Wrapping-it-all-together" class="headerlink" title="Wrapping it all together"></a>Wrapping it all together</h2><p>All right! We have everything more or less in place. The full source code becomes:</p>
+<p>#include  “inc&#x2F;hw_types.h”<br>#include  “inc&#x2F;hw_memmap.h”  </p>
+<p>#include  “driverlib&#x2F;sysctl.h”<br>#include  “driverlib&#x2F;gpio.h”<br>#include  “driverlib&#x2F;timer.h”<br>#include  “driverlib&#x2F;pin_map.h”  </p>
+<p>int main(void)  {  unsigned  long ulPeriod, dutyCycle;  &#x2F;&#x2F; 40 MHz system clock  SysCtlClockSet(SYSCTL_SYSDIV_5|SYSCTL_USE_PLL| SYSCTL_XTAL_16MHZ|SYSCTL_OSC_MAIN); ulPeriod &#x3D;  1000; dutyCycle &#x3D;  250;  &#x2F;&#x2F; Turn off LEDs  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);  GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);  GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3,  0);  &#x2F;&#x2F; Configure PB6 as T0CCP0  SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);  GPIOPinConfigure(GPIO_PB6_T0CCP0);  GPIOPinTypeTimer(GPIO_PORTB_BASE, GPIO_PIN_6);  &#x2F;&#x2F; Configure timer  SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER0);  TimerConfigure(TIMER0_BASE, TIMER_CFG_SPLIT_PAIR|TIMER_CFG_A_PWM);  TimerLoadSet(TIMER0_BASE, TIMER_A, ulPeriod -1);  TimerMatchSet(TIMER0_BASE, TIMER_A, dutyCycle);  &#x2F;&#x2F; PWM  TimerEnable(TIMER0_BASE, TIMER_A);  while(1)  {  &#x2F;&#x2F; The following code varies the duty cycle over time  TimerMatchSet(TIMER0_BASE, TIMER_A, dutyCycle++);  if(dutyCycle &gt;&#x3D; ulPeriod -  1) dutyCycle &#x3D;  0;  SysCtlDelay(50000);  }<br>}</p>
+<p>After wiring the Launchpad to my trusty old (you can see the dust in the post title image if you click it full size :) Picoscope, it’s easy to verify the code actually works:</p>
+<p><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://dl.dropbox.com/u/765299/blog/pwm.png&t=NTg2MGQxNGI3N2MzNDI1ZjQ5MzgwZTljZTY3YzFlOGU4ZjAwNTYxMSxlSVhRdU45bA==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/34772411349/stellaris-launchpad-pwm-tutorial&m=1"><img src="http://codeandlife.com/wp-content/uploads/2012/10/pwm-300x215.png" title="pwm"></a></p>
+<p>That’s it! Based on this tutorial, it should be quite easy to set up more PWM signals, or once you realize that the Launchpad LEDs are located in PF1-3 that in turn can be controlled by T0CCP1, T1CCP0, and T1CCP1, you can also set up all kinds of cool color displays like in the Stellaris Launchpad demo program.</p>
+<p>Oh, and if someone is able to figure out how in the hell am I supposed to set up timer-based PWM interrupts so I can get interrupted on both timer reset and match and figure out which one, please let me know. Based on some “quick” (one hour down the drain) tests, the PWM functionality stops working once timer interrupts get set up. You’d think it would be rather straightforward using Driverlib, but in that case you’d think wrong.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Stellaris-Launchpad-PWM-tutorial/" data-id="clgwlc72y000aanbv5pq97ai6" data-title="Stellaris Launchpad PWM tutorial" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Rumi" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Rumi/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T18:55:58.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/08/Rumi/">Rumi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="http://sdizdarevic.typepad.com/.a/6a0168e7d7768a970c01630609c92e970d-800wi" alt="Rumi"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Rumi/" data-id="clgwlc72o0006anbvdj534ity" data-title="Rumi" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Working-with-EEPROM-on-PIC16F877a" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Working-with-EEPROM-on-PIC16F877a/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T18:54:11.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/08/Working-with-EEPROM-on-PIC16F877a/">Working with EEPROM on PIC16F877a
+</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>EEPROM (<em><strong>E</strong>lectrically  <strong>E</strong>rasable  <strong>P</strong>rogrammable  <strong>R</strong>ead-<strong>O</strong>nly  <strong>M</strong>emory</em>) is a type of non-volatile memory which can be programmed, erased, and re-programmed electrically while it is on the circuit board. The main problem of FLASH and RAM memories is in fact that they are not capatible for storing data which will be stored after  loss of the electric power. A majority of PIC microcontrollers (for example PIC16F877a) come with some built-in EEPROM which is a great place to store data that should not be lost when the system is powered down. Actually, FLASH can be used for that purpose, but it is a little bit complicated and for data access you need to write a special software called Bootloader. PIC16F877 has a 256 bytes of EEPROM memory. A good example for EEPROM is a digital lock system where the access code can be stored in the EEPROM of microcontroller so that the contents remain intact even after the power supply has been removed. For more clearer example, you can use internal EEPROM to store the measured temperature values. Reading and writting to EEPROM is pretty straightforward, and it’ relativelly easy.</p>
+<p>To read EEPROM you need to:</p>
+<p>1.Write an address of EEPROM you want to read into EEADR register</p>
+<p>2. Set EEPGD bit from EECON1 register to 0 so the next operations can refer to EEPROM (and not FLASHROM)</p>
+<p>3. Set RD bit from EECON1 register to begin EEPROM reading</p>
+<p>4. The data is stored in EEDATA register.</p>
+<p>Sample code is below:</p>
+<p>void delay(char n) { &#x2F;&#x2F;function that inserts delay 5ms<br>char i; &#x2F;&#x2F; we need it because we will send data from EEPROM to LED<br>OPTION&#x3D;7; &#x2F;&#x2F; diodes which are on PORTB<br>do {<br>clrwdt();<br>i&#x3D;TMR0+39;<br>while(i!&#x3D;TMR0);<br>}while(–n&gt;0);<br>}<br>void main(void){<br>TRISB&#x3D;0;<br>EEADR &#x3D; 0;<br>EEPGD &#x3D; 0; &#x2F;&#x2F; 0 enables to read write from EEPROM-a ..</p>
+<p>&#x2F;&#x2F; EEPGD&#x3D;1 means that we want read&#x2F;write access to FLASHROM<br>unsigned char eeprom_address &#x3D; 0;<br>for(eeprom_address &#x3D; 0; eeprom_address&lt; 0xFF; eeprom_address++)<br>{ &#x2F;&#x2F; for loop for reading EEPROM and displaying it on PORTB<br>EEADR&#x3D;eeprom_address;<br>while(RD); &#x2F;&#x2F;wait to finish EEPROM reading<br>delay(50);<br>PORTB&#x3D;EEDATA;<br>if(eeprom_address&#x3D;&#x3D;0xFF)<br>eeprom_address&#x3D;0;<br>}<br>}</p>
+<p>I will write about writting to EEPROM in next post.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Working-with-EEPROM-on-PIC16F877a/" data-id="clgwlc730000banbv7ba0bdrh" data-title="Working with EEPROM on PIC16F877a
+" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Maple-ide-with-STM32-VL-discovery" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Maple-ide-with-STM32-VL-discovery/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T18:49:53.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/08/Maple-ide-with-STM32-VL-discovery/">Maple ide with STM32 VL discovery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>In the past, ARM processors were notoriously unfriendly in non-professional environments due to proprietary tool chains and unfamiliar instruction sets. Because of this, they were conspicuously absent from classrooms and hobbyists’ workbenches. LeafLabs aims to change this by providing an ARM tool-chain built from open source components and a programming environment that is intuitively easy to use.</p>
+<p><img src="http://78.media.tumblr.com/1ed4fb8bee809c263590567ed30d656c/tumblr_inline_mhaw5ufmDZ1qz4rgp.jpg" alt="image"></p>
+<p>If you’re familiar with Arduino then you’ll recognize the shape of the board, in fact the Maple is designed to be Arduino compatible and not just at the hardware level! The Maple IDE will make Processing&#x2F;Arduino programmers feel right at home. By swapping the popular “avr-gcc” compiler with CodeSourcery’s “arm-none-eabi-gcc,” LeafLabs manages to provide a nearly identical programming experience to Arduino despite targeting a completely different architecture. Also, while some Arduino shields are incompatible due to certain capabilities being allocated to different pins, several of them are currently supported and there are more to come. There is also a guide available on the product page for porting Arduino libraries and source code over to Maple.</p>
+<p>As similar as it may be to the Arduino, the differences are what really make the Maple stand out. It harnesses the power of a 32-bit ARM Cortex-M3 clocked at 72 MHz to push 39 GPIOs, 16 analog pins, 12-bit ADC resolution and 15 PWM pins at 16-bit resolution. In order to make sure you have plenty of programming room to flex that hardware, the Maple also provides 128k Flash and 20KB SRAM. All of this performance is delivered in the same form factor as the Arduino Pro.</p>
+<p>If your current Arduino-based project is pushing against the performance limits of the ATmega, porting it over to Maple may be the fastest and easiest way to continue developing your project without starting from scratch.</p>
+<p>Anyway, here I am talking about STM32 VL DISCOVERY, a great $12 board, that is based on ARM CORTEX processor. This board is an excellent evaluation platform for the STMicroelectronics STM32.</p>
+<h2 id="Board-features"><a href="#Board-features" class="headerlink" title="Board features"></a>Board features</h2><p>The STM32 on the board is packed with peripherals, especially communication ports and timers, there is a lot that can be done with this “low end” part.</p>
+<p><img src="http://78.media.tumblr.com/0cfc8db74beb3c44f6abd4a3e72dd25a/tumblr_inline_osxcwiu8qn1rzudnu_400.jpg" alt="image"></p>
+<ul>
+<li>STM32F100RB Value Line Medium Density MCU, 24MHz Cortex-M3 CPU, 128KB flash, 8KB RAM.</li>
+<li>7 DMA channels, 3 USARTs, 2 SPIs, 2 I2C, ADC, DAC, RTC, lots of timers, CRC unit, two independent watchdogs.</li>
+<li>Integrated ST-Link USB debugger&#x2F;programmer unit. The debugger unit is also usable separately.</li>
+<li>8MHz HSE crystal.</li>
+<li>32768Hz LSE crystal.</li>
+<li>USB power LED (red).</li>
+<li>USB communication LED (red).</li>
+<li>Two user LEDs (green, blue).</li>
+<li>Reset button.</li>
+<li>User button.</li>
+<li>All the STM32 I&#x2F;O pins are conveniently available on the board pin strips.</li>
+</ul>
+<p>So, for beginners which used to work with arduino and its IDE, programming this board can be quite confusing. You are lucky, because there is Leaflabs Maple IDE, and with a little help i managed this IDE to work with STM32 discovery. If you want to try it, you can download it  <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=https://dl.dropbox.com/s/tikpm2ecdleyp8l/maple-ide-0.0.11-windowsxp32.7z?dl=1&t=NDAyOTZhNjVjODFiNDQyZmFiYTNkNTk5M2E4ZjA1MzM5YzI4MmE4NyxaMkV5bmlJNw==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/41634655034/maple-ide-with-stm32-vl-discovery&m=1">here</a>. For example of usage and differencies from Arduino IDE, read  <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://leaflabs.com/docs/&t=NmE0YzMyMTk2NTQ2NWJlYzBiMjVjZjJmNzM5YTE1NTM1Y2ZlZjgzMSxaMkV5bmlJNw==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/41634655034/maple-ide-with-stm32-vl-discovery&m=1">here</a>.</p>
+<p><strong><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=https://dl.dropboxusercontent.com/s/tikpm2ecdleyp8l/maple-ide-0.0.11-windowsxp32.7z?dl=1&t=YWU2NTdkNTEwMzdmNWE5OGYwYmE3MGMwYzQ3NzY2YTM1ZTEwMmFmMCxaMkV5bmlJNw==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/41634655034/maple-ide-with-stm32-vl-discovery&m=1">Maple IDE v 0.0.11</a></strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Maple-ide-with-STM32-VL-discovery/" data-id="clgwlc72k0003anbv8oyh2hn8" data-title="Maple ide with STM32 VL discovery" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Sparrowboard-1450-Numato-getting-started" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/07/Sparrowboard-1450-Numato-getting-started/" class="article-date">
+  <time class="dt-published" datetime="2018-03-07T13:42:07.000Z" itemprop="datePublished">2018-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/03/07/Sparrowboard-1450-Numato-getting-started/">Sparrowboard 1450 Numato getting started</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="Sparrowboard1450-is-a-compact-and-simple-development-board-for-learning-18-series-Microchip-PIC-microcontrollers-Numato-Lab-is-making-really-good-products-which-are-really-simple-to-use-and-learn-electronics-and-are-by-my-opinion-designed-for-schools-and-universities-to-teach-students-With-this-easy-to-use-products-you-spend-your-time-only-on-coding-and-not-on-design"><a href="#Sparrowboard1450-is-a-compact-and-simple-development-board-for-learning-18-series-Microchip-PIC-microcontrollers-Numato-Lab-is-making-really-good-products-which-are-really-simple-to-use-and-learn-electronics-and-are-by-my-opinion-designed-for-schools-and-universities-to-teach-students-With-this-easy-to-use-products-you-spend-your-time-only-on-coding-and-not-on-design" class="headerlink" title="Sparrowboard1450 is a compact and simple development board for learning 18 series Microchip PIC microcontrollers. Numato Lab is making really good products which are really simple to use and learn electronics and are by my opinion designed for schools and universities to teach students. With this easy-to-use products you spend your time only on coding and not on design."></a>Sparrowboard1450 is a compact and simple development board for learning 18 series Microchip PIC microcontrollers. Numato Lab is making really good products which are really simple to use and learn electronics and are by my opinion designed for schools and universities to teach students. With this easy-to-use products you spend your time only on coding and not on design.</h4><h4 id="The-Sparrowboard1450-is-a-general-purpose-processor-module-using-the-PIC18F14K50-so-it-includes-a-USB-interface-with-Microchip’s-HID-Boot-Loader-already-programmed-in-The-Sparrowboard1450-has-a-PIC18F14K50-USB-PIC-populated-with-built-in-Microchip-bootloader-This-single-piece-of-hardware-is-all-you-need-to-get-your-first-program-up-running-No-programmer-or-other-hardware-tool-is-required"><a href="#The-Sparrowboard1450-is-a-general-purpose-processor-module-using-the-PIC18F14K50-so-it-includes-a-USB-interface-with-Microchip’s-HID-Boot-Loader-already-programmed-in-The-Sparrowboard1450-has-a-PIC18F14K50-USB-PIC-populated-with-built-in-Microchip-bootloader-This-single-piece-of-hardware-is-all-you-need-to-get-your-first-program-up-running-No-programmer-or-other-hardware-tool-is-required" class="headerlink" title="The Sparrowboard1450 is a general purpose processor module using the PIC18F14K50, so it includes a USB interface with Microchip’s HID Boot-Loader already programmed in. The Sparrowboard1450 has a PIC18F14K50 USB PIC populated with built in (Microchip) bootloader. This single piece of hardware is all you need to get your first program up running. No programmer or other hardware tool is required."></a>The Sparrowboard1450 is a general purpose processor module using the PIC18F14K50, so it includes a USB interface with Microchip’s HID Boot-Loader already programmed in. The Sparrowboard1450 has a PIC18F14K50 USB PIC populated with built in (Microchip) bootloader. This single piece of hardware is all you need to get your first program up running. No programmer or other hardware tool is required.</h4><p>The board features 12MIPs processor performance, and button selectable reset to Bootloader or Application.</p>
+<p><strong>Compiling programs to run with the boot-loader</strong><br>The boot loader occupies program memory from 0x0000 to 0x0FFF. Your programs must therefore be linked to run at 0x1000. The reset and interrupt vectors which are normally at 0x0000, 0x0008 and 0x0018 are re-mapped to 0x1000, 0x1008 and 0x1018. You must also include the rm18F14K50.lkr linker script in your project (if you dont include the linker file, the bootloader will be overwritten). The linker script tells the linker how to re-locate your program to the correct place. If you dont want to mess with this, you could just download the getting started file below,extract it, and compile it with free microchip compiler that comes with great-looking ide based on Netbeans IDE.</p>
+<p>If you are interested in how vector remapping works, you could keep reading.</p>
+<p>VECTOR REMAPPING<br>On PIC18 devices, addresses 0x00, 0x08, and 0x18 are used for<br>the reset, high priority interrupt, and low priority interrupt<br>vectors. However, the current Microchip USB bootloader occupies<br>addresses 0x00-0xFFF. Therefore the bootloader code remaps these<br>vectors to new locations. So you just simply add these three lines in your main.c file:</p>
+<p>#define REMAPPED_RESET_VECTOR_ADDRESS 0x1000<br>#define REMAPPED_HIGH_INTERRUPT_VECTOR_ADDRESS 0x1008<br>#define REMAPPED_LOW_INTERRUPT_VECTOR_ADDRESS 0x1018</p>
+<p>What we are going to do is the first “hello world” program for this microcontroller that<br>will blink LED4. (LEDS are connected to Microcontroller GPIOs in the following order:<br>LED1 -&gt; RC7<br>LED2 -&gt; RC6<br>LED3 -&gt; RC5<br>LED4 -&gt; RC4</p>
+<p>SO the code now looks like this:</p>
+<p>#define LED4 LATCbits.LATC4 &#x2F;&#x2F; LED4 -&gt; RC4</p>
+<p>void main(void)<br>{<br>ANSEL &#x3D; 0; &#x2F;&#x2F; all pins to digital mode<br>ANSELH &#x3D; 0;</p>
+<p>TRISB &#x3D; 0xff; &#x2F;&#x2F; all pins to input;<br>TRISC &#x3D; 0xef; &#x2F;&#x2F; Port C4 (RC4 -&gt; Led4) to output mode<br>T3CON &#x3D; 0xb1; &#x2F;&#x2F; 16 bit, 8:1 prescale, running</p>
+<p>while(1) {<br>LED4 &#x3D; 0;<br>delay_mS(400);<br>LED4 &#x3D; 1;<br>delay_mS(300);  </p>
+<p>}<br>}</p>
+<p>The delay_mS() if just a delay function that takes integer as argument<br>and keeps LED on or off for entered mS.</p>
+<p>How to load firmware</p>
+<p>Sparrowboard1450 is preprogrammed with Microchip compatible bootloader. When plugged to USB port,<br>the board will start executing the application firmware normally. To download firmware, run Microchip<br>Bootloader application (available as part of Microchip Application Libraries) and press the reset switch<br>while ‘SW’ switch is being pressed. While coming out of reset, the on board bootloader will sample the<br>state of RB4 GPIO and will go to download mode if the ‘SW’ switch is pressed.<br>If the board is entered bootloader mode, you can see the buttons on the Microchip bootloader<br>application becomes active. At this point, your application firmware can be downloaded to the board.</p>
+<p>If you want more info about this board, you can go to: <a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=http://numato.com/sparrowboard-1450-user-guide&t=MDdhOGYzZGUyN2MxNjljYzdlZjIzYjU3ZjEyNDc5NjM2YjA3ZDM1Nixrd01DN1NnSg==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/80250838750/sparrowboard-1450-numato-getting-started&m=1">http://numato.com/sparrowboard-1450-user-guide</a></p>
+<p>Here is blinky example:</p>
+<p><a target="_blank" rel="noopener" href="https://t.umblr.com/redirect?z=https://d2n8t7w04oj5fn.cloudfront.net/--Mw0a2HMe4/Blinky.zip&t=YjEyYjNkMzU2ZTI1MjZhNTE1ZWYwMGU5Nzk1ZTc4YzU0MmUzMTgyMyxrd01DN1NnSg==&b=t:FD6XX10bZXL2piQlYe7bhw&p=http://sdizdar.tumblr.com/post/80250838750/sparrowboard-1450-numato-getting-started&m=1">Blinky-download</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/07/Sparrowboard-1450-Numato-getting-started/" data-id="clgwlc72x0009anbv2cb9c4t6" data-title="Sparrowboard 1450 Numato getting started" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -140,7 +716,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
   </div>
 
@@ -154,6 +730,23 @@
         
           <li>
             <a href="/2023/04/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/Sarajevska-molitva/">Sarajevska molitva</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Setting-STM32-in-Ubuntu/">Setting STM32 in Ubuntu</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Fourier-series/">Fourier series</a>
           </li>
         
       </ul>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Working with EEPROM on PIC16F877a
+ | sdizdarevic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="EEPROM (Electrically  Erasable  Programmable  Read-Only  Memory) is a type of non-volatile memory which can be programmed, erased, and re-programmed electrically while it is on the circuit board. The">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Working with EEPROM on PIC16F877a
+">
+<meta property="og:url" content="http://sdizdarevic.github.io/2018/03/08/Working-with-EEPROM-on-PIC16F877a/index.html">
+<meta property="og:site_name" content="sdizdarevic">
+<meta property="og:description" content="EEPROM (Electrically  Erasable  Programmable  Read-Only  Memory) is a type of non-volatile memory which can be programmed, erased, and re-programmed electrically while it is on the circuit board. The">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-03-08T18:54:11.000Z">
+<meta property="article:modified_time" content="2023-04-25T18:18:11.780Z">
+<meta property="article:author" content="sdizdar">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="sdizdarevic" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sdizdarevic</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://sdizdarevic.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Working-with-EEPROM-on-PIC16F877a" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Working-with-EEPROM-on-PIC16F877a/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T18:54:11.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Working with EEPROM on PIC16F877a
+
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>EEPROM (<em><strong>E</strong>lectrically  <strong>E</strong>rasable  <strong>P</strong>rogrammable  <strong>R</strong>ead-<strong>O</strong>nly  <strong>M</strong>emory</em>) is a type of non-volatile memory which can be programmed, erased, and re-programmed electrically while it is on the circuit board. The main problem of FLASH and RAM memories is in fact that they are not capatible for storing data which will be stored after  loss of the electric power. A majority of PIC microcontrollers (for example PIC16F877a) come with some built-in EEPROM which is a great place to store data that should not be lost when the system is powered down. Actually, FLASH can be used for that purpose, but it is a little bit complicated and for data access you need to write a special software called Bootloader. PIC16F877 has a 256 bytes of EEPROM memory. A good example for EEPROM is a digital lock system where the access code can be stored in the EEPROM of microcontroller so that the contents remain intact even after the power supply has been removed. For more clearer example, you can use internal EEPROM to store the measured temperature values. Reading and writting to EEPROM is pretty straightforward, and it’ relativelly easy.</p>
+<p>To read EEPROM you need to:</p>
+<p>1.Write an address of EEPROM you want to read into EEADR register</p>
+<p>2. Set EEPGD bit from EECON1 register to 0 so the next operations can refer to EEPROM (and not FLASHROM)</p>
+<p>3. Set RD bit from EECON1 register to begin EEPROM reading</p>
+<p>4. The data is stored in EEDATA register.</p>
+<p>Sample code is below:</p>
+<p>void delay(char n) { &#x2F;&#x2F;function that inserts delay 5ms<br>char i; &#x2F;&#x2F; we need it because we will send data from EEPROM to LED<br>OPTION&#x3D;7; &#x2F;&#x2F; diodes which are on PORTB<br>do {<br>clrwdt();<br>i&#x3D;TMR0+39;<br>while(i!&#x3D;TMR0);<br>}while(–n&gt;0);<br>}<br>void main(void){<br>TRISB&#x3D;0;<br>EEADR &#x3D; 0;<br>EEPGD &#x3D; 0; &#x2F;&#x2F; 0 enables to read write from EEPROM-a ..</p>
+<p>&#x2F;&#x2F; EEPGD&#x3D;1 means that we want read&#x2F;write access to FLASHROM<br>unsigned char eeprom_address &#x3D; 0;<br>for(eeprom_address &#x3D; 0; eeprom_address&lt; 0xFF; eeprom_address++)<br>{ &#x2F;&#x2F; for loop for reading EEPROM and displaying it on PORTB<br>EEADR&#x3D;eeprom_address;<br>while(RD); &#x2F;&#x2F;wait to finish EEPROM reading<br>delay(50);<br>PORTB&#x3D;EEDATA;<br>if(eeprom_address&#x3D;&#x3D;0xFF)<br>eeprom_address&#x3D;0;<br>}<br>}</p>
+<p>I will write about writting to EEPROM in next post.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Working-with-EEPROM-on-PIC16F877a/" data-id="clgwlc730000banbv7ba0bdrh" data-title="Working with EEPROM on PIC16F877a
+" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/08/Rumi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Rumi
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/08/Maple-ide-with-STM32-VL-discovery/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Maple ide with STM32 VL discovery</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/Sarajevska-molitva/">Sarajevska molitva</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Setting-STM32-in-Ubuntu/">Setting STM32 in Ubuntu</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Fourier-series/">Fourier series</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 sdizdar<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

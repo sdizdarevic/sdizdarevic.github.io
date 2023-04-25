@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Fourier series | sdizdarevic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Fourier Series: Basic ResultsRecall that the mathematical expression  is called a Fourier series.Since this expression deals with convergence, we start by defining a similar expression when the sum is">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fourier series">
+<meta property="og:url" content="http://sdizdarevic.github.io/2018/03/08/Fourier-series/index.html">
+<meta property="og:site_name" content="sdizdarevic">
+<meta property="og:description" content="Fourier Series: Basic ResultsRecall that the mathematical expression  is called a Fourier series.Since this expression deals with convergence, we start by defining a similar expression when the sum is">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img1.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img2.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img3.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img4.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img5.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img6.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img7.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img8.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img9.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img10.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img11.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img12.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img13.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img15.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img16.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img5.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img5.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img17.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img18.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img19.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img20.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img21.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img7.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img12.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img22.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img23.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img24.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/pic/pic01.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img25.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img26.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img27.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img28.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img29.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/pic/pic02.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img30.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img31.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img32.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/pic/pic03.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img5.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img33.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img17.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img34.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img35.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img36.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img37.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img38.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img39.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img40.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img12.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/fourier1/img41.gif">
+<meta property="og:image" content="http://sosmath.com/fourier/pic/pic04.gif">
+<meta property="article:published_time" content="2018-03-08T19:01:51.000Z">
+<meta property="article:modified_time" content="2023-04-25T18:18:11.178Z">
+<meta property="article:author" content="sdizdar">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://sosmath.com/fourier/fourier1/img1.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="sdizdarevic" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">sdizdarevic</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://sdizdarevic.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Fourier-series" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/03/08/Fourier-series/" class="article-date">
+  <time class="dt-published" datetime="2018-03-08T19:01:51.000Z" itemprop="datePublished">2018-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Fourier series
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Fourier-Series-Basic-Results"><a href="#Fourier-Series-Basic-Results" class="headerlink" title="Fourier Series: Basic Results"></a>Fourier Series: Basic Results</h1><p>Recall that the mathematical expression</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img1.gif"></p>
+<p>is called a <strong>Fourier series</strong>.<br>Since this expression deals with convergence, we start by defining a similar expression when the sum is finite.</p>
+<p><strong>Definition.</strong> A <strong>Fourier polynomial</strong> is an expression of the form</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img2.gif"></p>
+<p>which may rewritten as</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img3.gif"></p>
+<p>The constants a_0, a_i_ and b_i, <img src="http://sosmath.com/fourier/fourier1/img4.gif">, are called the <strong>coefficients</strong> of <em>F_n</em>(<em>x</em>).</p>
+<p>The Fourier polynomials are <img src="http://sosmath.com/fourier/fourier1/img5.gif">-periodic functions. Using the trigonometric identities</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img6.gif"></p>
+<p>we can easily prove the integral formulas(1)for <img src="http://sosmath.com/fourier/fourier1/img7.gif">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img8.gif"></p>
+<p>(2)for <em>m</em> et <em>n</em>, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img9.gif"></p>
+<p>(3)for <img src="http://sosmath.com/fourier/fourier1/img10.gif">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img11.gif"></p>
+<p>(4)for <img src="http://sosmath.com/fourier/fourier1/img12.gif" alt=" ">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img13.gif" alt=" "></p>
+<p>Using the above formulas, we can easily deduce the following result:</p>
+<p><strong>Theorem.</strong> Let</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img15.gif" alt="  "></p>
+<p>We have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img16.gif" alt=" "></p>
+<p>This theorem helps associate a Fourier series to any <img src="http://sosmath.com/fourier/fourier1/img5.gif" alt=" ">-periodic function.</p>
+<p><strong>Definition.</strong> Let <em>f</em>(<em>x</em>) be a <img src="http://sosmath.com/fourier/fourier1/img5.gif" alt=" ">-periodic function which is integrable on <img src="http://sosmath.com/fourier/fourier1/img17.gif">. Set</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img18.gif" alt="  "></p>
+<p>The trigonometric series</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img19.gif" alt="  "></p>
+<p>is called the <strong>Fourier series</strong> associated to the function <em>f</em>(<em>x</em>). We will use the notation</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img20.gif" alt=" "></p>
+<p><strong>Example.</strong> Find the Fourier series of the function</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img21.gif" alt=" "></p>
+<p><strong>Answer.</strong> Since <em>f</em>(<em>x</em>) is odd, then <em>a__n</em> &#x3D; 0, for <img src="http://sosmath.com/fourier/fourier1/img7.gif" alt=" ">. We turn our attention to the coefficients <em>b__n</em>. For any <img src="http://sosmath.com/fourier/fourier1/img12.gif" alt=" ">, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img22.gif"></p>
+<p>We deduce</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img23.gif" alt="  "></p>
+<p>Hence</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img24.gif" alt=" "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic01.gif"></p>
+<p><strong>Example.</strong> Find the Fourier series of the function</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img25.gif" alt=" "></p>
+<p><strong>Answer.</strong> We have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img26.gif" alt="  "></p>
+<p>and</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img27.gif" alt=" "></p>
+<p>We obtain <em>b_2_n</em> &#x3D; 0 and</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img28.gif" alt=" "></p>
+<p>Therefore, the Fourier series of <em>f</em>(<em>x</em>) is</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img29.gif" alt=" "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic02.gif"></p>
+<p><strong>Example.</strong> Find the Fourier series of the function function</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img30.gif" alt="  "></p>
+<p><strong>Answer.</strong> Since this function is the function of the example above minus the constant <img src="http://sosmath.com/fourier/fourier1/img31.gif" alt=" ">. So Therefore, the Fourier series of <em>f</em>(<em>x</em>) is</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img32.gif" alt="  "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic03.gif"></p>
+<p><strong>Remark.</strong> We defined the Fourier series for functions which are <img src="http://sosmath.com/fourier/fourier1/img5.gif" alt=" ">-periodic, one would wonder how to define a similar notion for functions which are <em>L</em>-periodic.</p>
+<p>Assume that <em>f</em>(<em>x</em>) is defined and integrable on the interval [-<em>L</em>,_L_]. Set</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img33.gif" alt=" "></p>
+<p>The function <em>F</em>(<em>x</em>) is defined and integrable on <img src="http://sosmath.com/fourier/fourier1/img17.gif">. Consider the Fourier series of_F_(<em>x</em>)</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img34.gif" alt=" "></p>
+<p>Using the substitution <img src="http://sosmath.com/fourier/fourier1/img35.gif" alt=" ">, we obtain the following definition:</p>
+<p><strong>Definition.</strong> Let <em>f</em>(<em>x</em>) be a function defined and integrable on [-<em>L</em>,_L_]. The Fourier series of <em>f</em>(<em>x</em>) is</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img36.gif" alt=" "></p>
+<p>where</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img37.gif" alt=" "></p>
+<p>for <img src="http://sosmath.com/fourier/fourier1/img38.gif" alt=" ">.</p>
+<p><strong>Example.</strong> Find the Fourier series of</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img39.gif" alt="  "></p>
+<p><strong>Answer.</strong> Since <em>L</em> &#x3D; 2, we obtain</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img40.gif" alt="  "></p>
+<p>for <img src="http://sosmath.com/fourier/fourier1/img12.gif">. Therefore, we have</p>
+<p><img src="http://sosmath.com/fourier/fourier1/img41.gif" alt="  "></p>
+<p><img src="http://sosmath.com/fourier/pic/pic04.gif"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sdizdarevic.github.io/2018/03/08/Fourier-series/" data-id="clgwlc72g0001anbv3j9zggnl" data-title="Fourier series" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/08/Stellaris-Launchpad-PWM-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Stellaris Launchpad PWM tutorial</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/15/Sarajevska-molitva/">Sarajevska molitva</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Setting-STM32-in-Ubuntu/">Setting STM32 in Ubuntu</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Imagination-touts-cheap-Firefox-OS-MIPS-slab-to-Chinese-kitmakers/">Imagination touts cheap Firefox OS MIPS slab to Chinese kitmakers
+</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Fourier-series/">Fourier series</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 sdizdar<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
